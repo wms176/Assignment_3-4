@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <?php
         if(isset($_POST['submit1'])){
             $calc = $_POST['calculator'];
@@ -12,7 +9,9 @@
             }
         }
     ?>
-    
+   
+<!DOCTYPE html>
+<html lang="en"> 
 <head>
     <title>BMI and Retirement Calculators</title>
     <style>

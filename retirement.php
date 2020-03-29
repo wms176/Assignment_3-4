@@ -41,8 +41,6 @@
 
             echo $goal;
            
-
             echo number_format((float)$age, 2, '.', '');
-
         }
     ?>

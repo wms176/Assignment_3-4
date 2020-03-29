@@ -14,7 +14,7 @@
 
     <p>Please select which calculator you would like to use</p>
 
-    <form method="post" action="main.php">
+    <form method="post" action="index.php">
     <select name="calculator">
     <option>BMI Calculator</option>
     <option>Retirement Calculator</option>
@@ -26,10 +26,10 @@
         if(isset($_POST['submit1'])){
             $calc = $_POST['calculator'];
             if($calc == 'BMI Calculator'){
-                header('location: https://assigment-3-4.herokuapp.com/bmi.php');
+                header('location: bmi.php');
             }
             else {
-                header('location: https://assigment-3-4.herokuapp.com/retirement.php');
+                header('location: retirement.php');
             }
         }
     ?>

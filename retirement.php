@@ -33,13 +33,17 @@
             $saved = $_POST['saved'];
             $goal = $_POST['goal'];
 
-            (float)$savedtotal = (float)$salary * (float)$saved;
+
+            require_once('classes.php');
+
+            $tmp = new Retirement($age, $salary, $saved, $goal);
+
+            echo $tmp->getBMI();
+           /*  (float)$savedtotal = (float)$salary * (float)$saved;
             (float)$tmp = (float)$savedtotal  * 1.35;
             (float)$total = (float)$goal / (float)$tmp;
 
-            $age = $age + (float)$total;
-
-            echo round($age);
+            $age = $age + (float)$total; */
            
         }
     ?>

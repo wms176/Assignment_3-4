@@ -2,10 +2,10 @@
         if(isset($_POST['submit1'])){
             $calc = $_POST['calculator'];
             if($calc == 'BMI Calculator'){
-                header('location: bmi.php');
+                header('location: https://assigment-3-4.herokuapp.com/bmi.php');
             }
             else {
-                header('location: retirement.php');
+                header('location: https://assigment-3-4.herokuapp.com/retirement.php');
             }
         }
     ?>

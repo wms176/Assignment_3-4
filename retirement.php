@@ -38,8 +38,6 @@
             (float)$total = (float)$goal / (float)$tmp;
 
             $age = $age + (float)$total;
-
-            echo $goal;
            
             echo number_format((float)$age, 2, '.', '');
         }

@@ -38,7 +38,7 @@
 
             $tmp = new Retirement($age, $salary, $saved, $goal);
 
-            echo $tmp->getBMI();
+            echo $tmp->getAge();
            /*  (float)$savedtotal = (float)$salary * (float)$saved;
             (float)$tmp = (float)$savedtotal  * 1.35;
             (float)$total = (float)$goal / (float)$tmp;

@@ -59,11 +59,12 @@
             $feet = $_POST['feet'];
             $inches = $_POST['inches'];
             $weight = $_POST['weight'];
+            
+            require_once('classes.php');
 
-            (float)$height = ($feet * 12) + $inches;
-            (float)$total = (($weight) / $height / $height) * 703;
+            $tmp = new BMI($feet, $inches, $weight);
 
-            echo "<br> Your BMI: ";
-            echo number_format((float)$total, 2, '.', '');
+            echo $tmp->getBMI();
+
         }
     ?>

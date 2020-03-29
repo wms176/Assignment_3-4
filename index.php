@@ -1,16 +1,4 @@
-<?php
-        if(isset($_POST['submit1'])){
-            $calc = $_POST['calculator'];
-            if($calc == 'BMI Calculator'){
-                header('location: https://assigment-3-4.herokuapp.com/bmi.php');
-            }
-            else {
-                header('location: https://assigment-3-4.herokuapp.com/retirement.php');
-            }
-        }
-    ?>
-   
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en"> 
 <head>
     <title>BMI and Retirement Calculators</title>
@@ -34,6 +22,19 @@
     <input type="submit" name="submit1">
     </form>
 
+    <?php
+        if(isset($_POST['submit1'])){
+            $calc = $_POST['calculator'];
+            if($calc == 'BMI Calculator'){
+                header('location: https://assigment-3-4.herokuapp.com/bmi.php');
+            }
+            else {
+                header('location: https://assigment-3-4.herokuapp.com/retirement.php');
+            }
+        }
+    ?>
+    </body>
+    </html>
  
 
 

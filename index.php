@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
+        if(isset($_POST['submit1'])){
+            $calc = $_POST['calculator'];
+            if($calc == 'BMI Calculator'){
+                header('location: bmi.php');
+            }
+            else {
+                header('location: retirement.php');
+            }
+        }
+    ?>
+    
 <head>
     <title>BMI and Retirement Calculators</title>
     <style>
@@ -23,16 +35,6 @@
     <input type="submit" name="submit1">
     </form>
 
-    <?php
-        if(isset($_POST['submit1'])){
-            $calc = $_POST['calculator'];
-            if($calc == 'BMI Calculator'){
-                header('location: bmi.php');
-            }
-            else {
-                header('location: retirement.php');
-            }
-        }
-    ?>
+ 
 
 

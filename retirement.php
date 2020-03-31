@@ -12,32 +12,73 @@
 
 <body>
     <h1>Retirement Calculator</h1>
-    <p>Please fill in the following form to calculate your retirement age:</p>
+    <p><span class="error">All form fields must be completed for the Retirement calculator to function.</span></p>
     <br>
     <form method='post' action='retirement.php'>
-    <label>Current age: <input type='text' name='age'></label>
+    <label>Current age: <input type='text' name='age' value="<?php echo $age; ?>"></label>
+    <span class="error"><?php echo $ageError; ?></span>
     <br>
-    <label>Current salary: <input type='text' name='salary'></label>
+    <label>Current salary: <input type='text' name='salary' value="<?php echo $salary; ?>"></label>
+    <span class="error"><?php echo $salaryError; ?></span>
     <br>
-    <label>Percentage of salary saved: <input type='text' name='saved'></label>
+    <label>Percentage of salary saved: <input type='text' name='saved' value="<?php echo $saved; ?>"></label>
+    <span class="error"><?php echo $savedError; ?></span>
     <br>
-    <label>Retirement goal: <input type='text' name='goal'></label>
+    <label>Retirement goal: <input type='text' name='goal' value="<?php echo $goal; ?>"></label>
+    <span class="error"><?php echo $goalError; ?></span>
     <br><br>
     <input type='submit' name='submit2'>
     </form>
 
     <?php
         if(isset($_POST['submit2'])){
-            $age = $_POST['age'];
-            $salary = $_POST['salary'];
-            $saved = $_POST['saved'];
-            $goal = $_POST['goal'];
+            $age = sanitizeString($_POST['age']);
+            $salary = sanitizeString($_POST['salary']);
+            $saved = sanitizeString($_POST['saved']);
+            $goal = sanitizeString($_POST['goal']);
+            $calculate = true;
 
+            $ageError = '';
+            if ((filter_var($age, FILTER_VALIDATE_INT) === false) || $age < 0) {
+                $ageError = "This number must be a positive integer";
+                $calculate = false;
+            }
 
-            require_once('classes.php');
+            $salaryError = '';
+            if ((filter_var($salary, FILTER_VALIDATE_INT) === false) || $salary < 0) {
+                $salaryError = "This number must be a positive integer";
+                $calculate = false;
+            }
 
-            $tmp = new Retirement($age, $salary, $saved, $goal);
+            $savedError = '';
+            if ((filter_var($saved, FILTER_VALIDATE_INT) === false) || $saved < 0) {
+                $savedError = "This number must be a positive integer";
+                $calculate = false;
+            }
 
-            echo $tmp->getAge();
+            $goalError = '';
+            if ((filter_var($goal, FILTER_VALIDATE_INT) === false) || $goal < 0) {
+                $goalError = "This number must be a positive integer";
+                $calculate = false;
+            }
+
+            if ($calculate === true) {
+                require_once('classes.php');
+
+                $tmp = new Retirement($age, $salary, $saved, $goal);
+
+                if($tmp->getAge() >= 100){
+                    echo "You will die before reaching your goal";
+                }
+                else {
+                    echo $tmp->getAge();
+            }
+            }
+            function sanitizeString($data) {
+                $data = strip_tags($data);
+                $data = stripslashes($data);
+                $data = htmlentities($data);
+                return $data;
+              }
         }
     ?>

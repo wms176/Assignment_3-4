@@ -23,7 +23,12 @@
 
             $weightError = '';
             if ((filter_var($weight, FILTER_VALIDATE_INT) === false) || $weight < 0) {
-                $currentCredErr = "Your weight must be a positive integer";
+                $weightError = "Your weight must be a positive integer";
+                $calculate = false;
+            }
+
+            if ($feet == 0 && $inches == 0) {
+                $calculateError = "Your height must be taller than 0 feet and 0 inches";
                 $calculate = false;
             }
             
@@ -75,7 +80,7 @@
     <option>11</option>
     </select>
     <label>"</label>
-    
+    <span class='error'><?php echo $calculateError; ?></span>
     </label>
     <br>
     <label>Current weight in lbs: <input type='text' name='weight'></label>

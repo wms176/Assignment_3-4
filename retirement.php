@@ -30,7 +30,7 @@
             }
 
             $savedError = '';
-            if ((filter_var($saved, FILTER_VALIDATE_FLOAT) === false) || $saved > 0.0) {
+            if ((filter_var($saved, FILTER_VALIDATE_FLOAT) === false) || $saved < 0.0) {
                 $savedError = "Your saved percentage must be a decimal greater than 0.0";
                 $calculate = false;
             }

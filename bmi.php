@@ -51,7 +51,7 @@
                     $weightClass = "You are overweight";
                 }
 
-                else {
+                if ($bmi > 30) {
                     $weightClass = "You are obese";
                 }
             }

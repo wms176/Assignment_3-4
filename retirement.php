@@ -14,6 +14,7 @@
     <h1>Retirement Calculator</h1>
     <p>Please fill in the following form to calculate your retirement age:</p>
     <br>
+    <span class="error"><?php echo $ageError; ?></span>
     <form method='post' action='retirement.php'>
     <label>Current age: <input type='text' name='age'></label>
     <br>
@@ -24,9 +25,9 @@
     <label>Retirement goal: <input type='text' name='goal'></label>
     <br><br>
     <input type='submit' name='submit2'>
-    <br>
-    <label>Retirement age: <?php echo $newAge?><?php echo $ageError?></label>
+    <br><br>
     </form>
+    <span>Retirement age: <?php echo $newAge?></span>
 
     <?php
         if(isset($_POST['submit2'])){

@@ -59,6 +59,7 @@
                     $newAge = $tmp->getAge();
                 }
             }
+        }
     ?>
 
     <form method='post' action='retirement.php'>

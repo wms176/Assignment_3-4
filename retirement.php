@@ -42,5 +42,6 @@
             }
             else{
                 echo $tmp->getAge();
+            }
         }
     ?>

@@ -12,7 +12,8 @@
 
 <body>
     <h1>Retirement Calculator</h1>
-    <p><span class="error">All form fields must be completed for the Retirement calculator to function.</span></p>
+    <p><span class="error">All form fields must be completed for the Retirement calculator to function.</span></p><br>
+    <?php echo $overError ?>
     <br>
     <form method='post' action='retirement.php'>
     <label>Current age: <input type='text' name='age' value="<?php echo $age; ?>"></label>
@@ -28,6 +29,8 @@
     <span class="error"><?php echo $goalError; ?></span>
     <br><br>
     <input type='submit' name='submit2'>
+    <br><br>
+    <label>Retirement age: <?php echo $display?></label>
     </form>
 
     <?php
@@ -51,8 +54,8 @@
             }
 
             $savedError = '';
-            if ((filter_var($saved, FILTER_VALIDATE_INT) === false) || $saved < 0) {
-                $savedError = "This number must be a positive integer";
+            if ((filter_var($saved, FILTER_VALIDATE_FLOAT) === false) || $saved < 0) {
+                $savedError = "This number must be a positive float";
                 $calculate = false;
             }
 
@@ -68,11 +71,11 @@
                 $tmp = new Retirement($age, $salary, $saved, $goal);
 
                 if($tmp->getAge() >= 100){
-                    echo "You will die before reaching your goal";
+                    $overError = "You will die before reaching your goal";
                 }
                 else {
-                    echo $tmp->getAge();
-            }
+                    $display = $tmp->getAge();
+                }
             }
             function sanitizeString($data) {
                 $data = strip_tags($data);

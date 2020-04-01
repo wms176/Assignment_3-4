@@ -69,16 +69,16 @@
     ?>
 
     <form method='post' action='retirement.php'>
-    <label>Current age: <input type='text' name='age'></label>
+    <label>Current age: <input type='text' name='age' value="<?php echo $age?>"></label>
     <span class="error"><?php echo $ageError; ?></span>
     <br>
-    <label>Current salary: <input type='text' name='salary'></label>
+    <label>Current salary: <input type='text' name='salary' value="<?php echo $salary?>"></label>
     <span class="error"><?php echo $salaryError; ?></span>
     <br>
-    <label>Percentage of salary saved: <input type='text' name='saved'></label>
+    <label>Percentage of salary saved: <input type='text' name='saved' value="<?php echo $saved?>"></label>
     <span class="error"><?php echo $savedError; ?></span>
     <br>
-    <label>Retirement goal: <input type='text' name='goal'></label>
+    <label>Retirement goal: <input type='text' name='goal' value="<?php echo $goal?>"></label>
     <span class="error"><?php echo $goalError; ?></span>
     <br><br>
     <input type='submit' name='submit2'>

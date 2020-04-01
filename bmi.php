@@ -38,6 +38,22 @@
                 $tmp = new BMI($feet, $inches, $weight);
 
                 $bmi = $tmp->getBMI();
+
+                if ($bmi < 18.5) {
+                    $weightClass = "You are underweight";
+                }
+
+                if (18.5 <= $bmi <= 24.9) {
+                    $weightClass = "You are normal weight";
+                }
+
+                if (25 <= $bmi <= 29.9) {
+                    $weightClass = "You are overweight";
+                }
+
+                else {
+                    $weightClass = "You are obese";
+                }
             }
 
         }
@@ -50,7 +66,7 @@
     ?>
     <form method='post' action='bmi.php'>
     <label>Current height: 
-    <select name='feet'>
+    <select name='feet' value="<?php echo $feet; ?>">
     <option>0</option>
     <option>1</option>
     <option>2</option>
@@ -65,7 +81,7 @@
     </select>
     <label>'</label>
 
-    <select name='inches'>
+    <select name='inches' value="<?php echo $inches; ?>">
     <option>0</option>
     <option>1</option>
     <option>2</option>
@@ -87,6 +103,7 @@
     <span class='error'><?php echo $weightError; ?></span>
     <br><br>
     <input type='submit' name='submit3'>
-    <span>Your BMI: <?php echo $bmi; ?></span>
     </form>
+    <span>Your BMI: <?php echo $bmi; ?></span><br>
+    <span style="font-weight: bold;"><?php echo $weightClass; ?></span>
 </body>

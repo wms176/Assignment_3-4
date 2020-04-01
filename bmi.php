@@ -43,11 +43,11 @@
                     $weightClass = "You are underweight";
                 }
 
-                if (18.5 <= $bmi <= 24.9) {
+                if ($bmi >= 18.5 && $bmi <= 24.9) {
                     $weightClass = "You are normal weight";
                 }
 
-                if (25 <= $bmi <= 29.9) {
+                if ($bmi >= 25 && $bmi <= 29.9) {
                     $weightClass = "You are overweight";
                 }
 
@@ -99,7 +99,7 @@
     <span class='error'><?php echo $calculateError; ?></span>
     </label>
     <br>
-    <label>Current weight in lbs: <input type='text' name='weight'></label>
+    <label>Current weight in lbs: <input type='text' name='weight' value="<?php echo $weight; ?>"></label>
     <span class='error'><?php echo $weightError; ?></span>
     <br><br>
     <input type='submit' name='submit3'>

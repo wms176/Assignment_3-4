@@ -60,6 +60,12 @@
                 }
             }
         }
+        function sanitizeString($data) {
+            $data = strip_tags($data);
+            $data = stripslashes($data);
+            $data = htmlentities($data);
+            return $data;
+          }
     ?>
 
     <form method='post' action='retirement.php'>

@@ -66,7 +66,7 @@
     ?>
     <form method='post' action='bmi.php'>
     <label>Current height: 
-    <select name='feet' value="<?php echo $feet; ?>">
+    <select name='feet'>
     <option>0</option>
     <option>1</option>
     <option>2</option>
@@ -81,7 +81,7 @@
     </select>
     <label>'</label>
 
-    <select name='inches' value="<?php echo $inches; ?>">
+    <select name='inches'>
     <option>0</option>
     <option>1</option>
     <option>2</option>

@@ -24,6 +24,8 @@
     <label>Retirement goal: <input type='text' name='goal'></label>
     <br><br>
     <input type='submit' name='submit2'>
+    <br>
+    <label>Retirement age: <?php echo $newAge?><?php echo $ageError?></label>
     </form>
 
     <?php
@@ -38,10 +40,10 @@
             $tmp = new Retirement($age, $salary, $saved, $goal);
 
             if($tmp->getAge() >= 100){
-                echo "You will die before reaching your goal";
+                $ageError = "You will die before reaching your goal";
             }
             else{
-                echo $tmp->getAge();
+                $newAge = $tmp->getAge();
             }
         }
     ?>
